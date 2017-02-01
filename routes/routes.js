@@ -15,7 +15,8 @@ module.exports = function(app) {
     });
 
     app.get('/login/google',
-    passport.authenticate('google', { scope: ['profile'] }));
+    passport.authenticate('google', { scope: [ 'https://www.googleapis.com/auth/plus.login',
+      'https://www.googleapis.com/auth/plus.profile.emails.read' ] }));
 
     app.get('/login/google/return', 
     passport.authenticate('google', { failureRedirect: '/login' }),
