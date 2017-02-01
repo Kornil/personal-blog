@@ -1,12 +1,12 @@
 var passport = require('passport');
 
 module.exports = function(app) {
-    
+
     app.use(require('body-parser').urlencoded({ extended: true }));
 
     app.get('/',
     function(req, res) {
-        res.render('home', { user: req.user });
+        res.render('index', { user: req.user });
     });
 
     app.get('/login',

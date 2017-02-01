@@ -1,20 +1,45 @@
 var express = require('express');
 var passport = require('passport');
 var routes = require('./routes/routes');
+var mongoose = require('mongoose');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
+var User = require('./models/user')
+
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGO_DB);
 
 passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/login/google/return'
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: 'https://kornil-blog.herokuapp.com/login/google/return'
   },
-  function(accessToken, refreshToken, profile, cb) {
-    // In this example, the user's Google profile is supplied as the user
-    // record.  In a production-quality application, the Google profile should
-    // be associated with a user record in the application's database, which
-    // allows for account linking and authentication with other identity
-    // providers.
-    return cb(null, profile);
+  function(accessToken, refreshToken, profile, done) {
+
+    process.nextTick(function(){
+      User.findOne({ 'google.id' : profile.id }).exec()
+        .then(function(user){
+          if(user)
+            return done(null, user);
+          else{
+            var newUser = new User({
+              username: profile.displayName,
+              name: name,
+              email: profile.emails[0].value,
+              picture: profile.picture,
+              google: {
+                id: profile.id,
+                token: acessToken                
+              }
+            });
+            newUser.save()
+              .then(function(newUser){
+                return done(null, newUser);
+              })
+          }
+        }).catch(function(err){
+          throw err;
+        });
+    })
   }));
 
 
@@ -27,18 +52,21 @@ passport.use(new GoogleStrategy({
 // from the database when deserializing.  However, due to the fact that this
 // example does not have a database, the complete Google profile is serialized
 // and deserialized.
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
 });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
 });
 
 var app = express();
 var port = process.env.PORT || 3000;
 
 // Configure view engine to render EJS templates.
+app.use('/assets', express.static(__dirname + '/assets'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -47,7 +75,7 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('combined'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(require('express-session')({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
 
 // Initialize Passport and restore authentication state, if any, from the session. 
 app.use(passport.initialize());
