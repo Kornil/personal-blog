@@ -15,7 +15,7 @@ module.exports = function(app) {
     });
 
     app.get('/login/google',
-    passport.authenticate('google'));
+    passport.authenticate('google', { scope: ['profile'] }));
 
     app.get('/login/google/return', 
     passport.authenticate('google', { failureRedirect: '/login' }),
