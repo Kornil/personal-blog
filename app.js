@@ -28,7 +28,7 @@ passport.use(new GoogleStrategy({
               picture: profile.picture,
               google: {
                 id: profile.id,
-                token: acessToken                
+                token: accessToken                
               }
             });
             newUser.save()
