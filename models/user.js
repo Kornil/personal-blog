@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var User = new Schema({
   google: Schema.Types.Mixed,
+  name: String,
   username: String,
   email: String,
   picture: String
