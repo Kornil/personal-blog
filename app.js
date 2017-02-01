@@ -21,12 +21,11 @@ passport.use(new GoogleStrategy({
           if(user)
             return done(null, user);
           else{
-            console.log(profile);
+            //console.log(profile);
             var newUser = new User({
               username: profile.displayName,
-              //name: profile.name,
-              //email: profile.emails[0].value,
-              picture: profile.picture,
+              email: profile.emails[0].value,
+              picture: profile.image[0].url,
               google: {
                 id: profile.id,
                 token: accessToken                
