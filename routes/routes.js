@@ -9,11 +9,6 @@ module.exports = function(app) {
         res.render('index', { user: req.user });
     });
 
-    app.get('/login',
-    function(req, res){
-        res.render('login');
-    });
-
     app.get('/login/google',
     passport.authenticate('google', { scope: [ 'https://www.googleapis.com/auth/plus.login',
       'https://www.googleapis.com/auth/plus.profile.emails.read' ] }));
