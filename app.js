@@ -5,10 +5,6 @@ var mongoose = require('mongoose');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var User = require('./models/user');
 
-module.exports = {
-  EMAIL: process.env.EMAIL
-}
-
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_DB);
 

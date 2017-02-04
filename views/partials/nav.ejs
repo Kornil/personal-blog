@@ -12,7 +12,7 @@
     <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
-        <% if (typeof user !== "undefined" && user.mail === require('../app').EMAIL) { %>
+        <% if (typeof user !== "undefined" && user.admin) { %>
             <li><a href="#">New Article</a></li>
         <% } %>
         <li><a href="#about">About</a></li>
