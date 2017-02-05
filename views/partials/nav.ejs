@@ -11,9 +11,9 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
         <% if (typeof user !== "undefined" && user.admin) { %>
-            <li><a href="#">New Article</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#newArticle">New Article</a></li>
         <% } %>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -22,7 +22,9 @@
     </div>
 </nav>
 
-<div id="myModal" class="modal fade" role="dialog">
+<% include ./newarticle %>
+
+<div id="myModal" class="modal fade modal-sm" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
