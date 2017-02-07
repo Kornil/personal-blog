@@ -21,7 +21,6 @@ passport.use(new GoogleStrategy({
           if(user)
             return done(null, user);
           else{
-            //console.log(profile);
             var newUser = new User({
               username: profile.displayName,
               email: profile.emails[0].value,
@@ -31,10 +30,10 @@ passport.use(new GoogleStrategy({
                 token: accessToken                
               }
             });
-            newUser.save()
-              .then(function(newUser){
+            //newUser.save()
+              //.then(function(newUser){
                 return done(null, newUser);
-              })
+              //})
           }
         }).catch(function(err){
           throw err;
