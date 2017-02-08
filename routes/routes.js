@@ -48,12 +48,13 @@ module.exports = function(app) {
   app.get('/register/'+process.env.SECRET_LINK, function(req, res){
     var profile = req.user;
     var newUser = new User ({
-        username: profile.displayName,
-        email: profile.emails[0].value,
-        picture: profile.photos[0].value,
+        username: profile.username,
+        email: profile.email,
+        picture: profile.picture,
+        admin: true,
         google: {
-            id: profile.id,
-            token: accessToken                
+            id: profile.google.id,
+            token: profile.google.token                
         }
     });
     newUser.save()
