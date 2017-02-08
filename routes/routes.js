@@ -1,4 +1,5 @@
 var passport = require('passport');
+var Article = require('../models/article');
 
 module.exports = function(app) {
 
@@ -28,6 +29,19 @@ module.exports = function(app) {
     app.get('/logout', function(req, res) {
       req.logout();
       res.redirect('/');
+  });
+
+  app.post('/newArticle', function(res, req){
+    var newArticle = new Article({
+        title: req.body.title,
+        text: req.body.text,
+        author: req.user,
+        date: Date.now()
+    })
+    newArticle.save()
+        .then(function(){
+            res.redirect('/');
+        })
   });
 
 }
