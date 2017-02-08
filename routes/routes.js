@@ -35,7 +35,7 @@ module.exports = function(app) {
     var newArticle = new Article({
         title: req.body.title,
         text: req.body.text,
-        author: req.user,
+        author: req.user._id,
         date: Date.now()
     })
     newArticle.save()
