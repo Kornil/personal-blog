@@ -31,7 +31,7 @@ module.exports = function(app) {
       res.redirect('/');
   });
 
-  app.post('/newArticle', function(res, req){
+  app.post('/newArticle', function(req, res){
     var newArticle = new Article({
         title: req.body.title,
         text: req.body.text,
