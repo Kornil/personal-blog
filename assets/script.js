@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $('#newArticleTextArea').on('change keyup paste', function() {
+  $('#newArticleTitle, #newArticleSubtitle, #newArticleTextArea').on('change keyup paste', function() {
     $('#preview').html(
       marked(
         "<h1>"+$('#newArticleTitle').val()+"</h1>"+
