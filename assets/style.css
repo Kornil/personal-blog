@@ -13,3 +13,12 @@ textarea {
   height: 450px;
   resize: none;
 }
+input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+input[type="text"]:focus {
+  border-bottom: solid 2px #969696;
+}
