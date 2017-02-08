@@ -35,6 +35,8 @@ module.exports = function(app) {
   app.post('/newArticle', function(req, res){
     var newArticle = new Article({
         title: req.body.title,
+        subtitle: req.body.subtitle,
+        image: req.body.image,
         text: req.body.text,
         author: req.user._id,
         date: Date.now()
