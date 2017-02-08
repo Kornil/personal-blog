@@ -8,4 +8,4 @@ var Article = new Schema({
   date: Number
 });
 
-module.exports = mongoose.model('Article', User);
+module.exports = mongoose.model('Article', Article);
