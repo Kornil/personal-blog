@@ -1,5 +1,6 @@
 var passport = require('passport');
 var Article = require('../models/article');
+var User = require('../models/user');
 
 module.exports = function(app) {
 
@@ -40,6 +41,24 @@ module.exports = function(app) {
     })
     newArticle.save()
         .then(function(){
+            res.redirect('/');
+        })
+  });
+
+  app.get('/register/'+process.env.SECRET_LINK, function(req, res){
+    var profile = req.user;
+    var newUser = new User ({
+        username: profile.displayName,
+        email: profile.emails[0].value,
+        picture: profile.photos[0].value,
+        google: {
+            id: profile.id,
+            token: accessToken                
+        }
+    });
+    newUser.save()
+        .then(function(){
+            req.logout();
             res.redirect('/');
         })
   });
