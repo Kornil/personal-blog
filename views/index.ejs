@@ -19,13 +19,20 @@
 			<p>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</p>
 		<% } %>
       </div>
-      <div>
+      <div class="row">
+        <div class="col col-md-8">
+
         <% for(var i = articles.length-1; i >= 0; i--) { %>
-          <a href="/article/<%= articles[i]._id %>">
-            <h1><%= articles[i].title %></h1>
-            <h2><%= articles[i].subtitle %></h2>
-          </a>
+        <a href="/article/<%= articles[i]._id %>">
+          <div id="article_preview">
+              <h1><%= articles[i].title %></h1>
+              <h2><%= articles[i].subtitle %></h2>
+              <h5 id="log-end">/* end preview */</h5>
+          </div>
+        </a>
         <% } %>
+
+        </div>
       </div>
 
     </div><!-- /.container -->

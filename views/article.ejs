@@ -9,12 +9,19 @@
   <body>
 
     <% include ./partials/nav %>
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-8">
 
-    <div>
-      <h1><%= article.title %></h1>
-      <h2><%= article.subtitle %></h2>
-      <img />
-      <%= article.text %>
+          <div>
+            <h1><%= article.title %></h1>
+            <h5 id="log-subtitle"><%= article.subtitle %></h5>
+            <img />
+            <%= article.text %>
+          </div>
+
+        </div>
+      </div>
     </div>
 
   </body>

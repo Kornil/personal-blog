@@ -11,3 +11,19 @@ body {
 textarea[class=form-control] {
   resize: none;
 }
+a #article_preview {
+  font-weight:normal;
+  text-decoration:none;
+}
+#article_preview h5 {
+  font-family: 'Cutive Mono', monospace;
+  font-size: 16px;
+}
+#log-subtitle{  
+  font-weight: 700;
+  padding-left: 2rem;
+}
+#log-end{
+  text-align: center;
+  color: #888;
+}
