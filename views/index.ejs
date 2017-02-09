@@ -19,6 +19,14 @@
 			<p>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</p>
 		<% } %>
       </div>
+      <div>
+        <% for(var i = articles.length-1; i >= 0; i--) { %>
+          <a href="/article/<%= article[i]._id %>">
+            <h1><%= article[i].title %></h1>
+            <h2><%= article[i].subtitle %></h2>
+          </a>
+        <% } %>
+      </div>
 
     </div><!-- /.container -->
 

@@ -6,9 +6,11 @@ module.exports = function(app) {
 
     app.use(require('body-parser').urlencoded({ extended: true }));
 
-    app.get('/',
-    function(req, res) {
-        res.render('index', { user: req.user });
+    app.get('/', function(req, res) {
+        Article.find({}).exec()
+            .then(function(articles){
+                res.render('index', { user: req.user, articles: articles });
+            })        
     });
 
     app.get('/login/google',
@@ -19,6 +21,13 @@ module.exports = function(app) {
     passport.authenticate('google', { failureRedirect: '/login' }),
     function(req, res) {
         res.redirect('/');
+    });
+
+    app.get('/article/:id', function(req, res){
+        Article.findById(id).exec()
+            .then(function(article){
+                res.render('/article', {article: article})
+            })
     });
 
     app.get('/profile',
