@@ -26,7 +26,7 @@ module.exports = function(app) {
     app.get('/article/:id', function(req, res){
         Article.findById(req.params.id).exec()
             .then(function(article){
-                res.render('article', {article: article})
+                res.render('article', { user: req.user, article: article });
             })
     });
 
