@@ -1,10 +1,6 @@
 body {
   padding-top: 50px;
 }
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
 .modal {
   margin: auto;
 }
@@ -32,7 +28,7 @@ textarea[class=form-control] {
 }
 .preview_image {
   width: 100%;
-  max-height: 10%;
+  height: 30vh;
   object-fit: cover;
 }
 /* // index preview style */
