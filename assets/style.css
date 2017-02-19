@@ -26,9 +26,6 @@ textarea[class=form-control] {
 #title{
   font-weight: 700;
 }
-#preview_image {
-  height: 30vh;
-}
 /* // index preview style */
 
 /* article style */
@@ -43,4 +40,8 @@ textarea[class=form-control] {
 .article-image {
   width: 100%;
   object-fit: cover;
+  height: 30vh;
+}
+#article-text {
+  margin-top: 25px;
 }
