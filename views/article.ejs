@@ -11,15 +11,13 @@
     <% include ./partials/nav %>
     <div class="container">
       <div class="row">
-        <div class="col col-md-8">
+        <div class="col col-md-8 article">
 
-          <div>
-            <h1><%= article.title %></h1>
-            <h2><%= article.subtitle %></h2>
-            <img />
-            <%= article.text %>            
-            <h5 id="log-end">/* end article */</h5>
-          </div>
+          <h1 id="title"><%= article.title %></h1>
+          <h4 id="log-subtitle"><%= article.subtitle %></h4>
+          <img class="preview_image" src="<%= article.image %>" />
+          <p><%= article.text %></p>         
+          <h5 id="log-end">/* end article */</h5>
 
         </div>
       </div>
