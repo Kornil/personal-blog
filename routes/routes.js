@@ -48,7 +48,7 @@ module.exports = function(app) {
         subtitle: req.body.subtitle,
         image: req.body.image,
         text: req.body.text,
-        author: req.user._id,
+        author: req.user.username,
         date: moment().format('MMMM Do YYYY')
     })
     newArticle.save()
