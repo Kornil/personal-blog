@@ -2,11 +2,11 @@ body {
   padding-top: 50px;
   background: honeydew;
 }
-#3498db {
+.navbar-inverse {
   background: transparent;
   border: 0;
 }
-.navbar-inverse .navbar-nav>li>a,  {
+.navbar-inverse .navbar-nav>li>a {
   font-weight: bold;
   padding: 15px 0;
   margin: 0 10px;
