@@ -1,6 +1,7 @@
 var passport = require('passport');
 var Article = require('../models/article');
 var User = require('../models/user');
+var moment = require('moment')
 
 module.exports = function(app) {
 
@@ -48,8 +49,8 @@ module.exports = function(app) {
         subtitle: req.body.subtitle,
         image: req.body.image,
         text: req.body.text,
-        author: req.user._id,
-        date: Date.now()
+        author: req.user.username,
+        date: moment().format('MMMM Do YYYY')
     })
     newArticle.save()
         .then(function(){

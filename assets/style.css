@@ -1,10 +1,6 @@
 body {
   padding-top: 50px;
 }
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
 .modal {
   margin: auto;
 }
@@ -23,8 +19,7 @@ textarea[class=form-control] {
 #article_preview:hover, #article_preview:focus {
   text-decoration: none;
 }
-#log-subtitle{  
-  padding-left: 2rem;
+#log-subtitle{
   font-style: italic;
 }
 #title{
@@ -37,4 +32,16 @@ textarea[class=form-control] {
   text-align: center;
   color: #888;
   font-size: 16px;
+  margin-top: 50px;
+}
+.article {
+  font-family: 'Cutive Mono', monospace;
+}
+.article-image {
+  width: 100%;
+  object-fit: cover;
+  height: 30vh;
+}
+#article-text {
+  margin-top: 25px;
 }
