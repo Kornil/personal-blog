@@ -25,10 +25,13 @@
     </div>
 
     <script>
-      
+    $(document).ready(function(){
+
       $("#article-text").html(
-        marked( '<%= article.text %>' )
+        marked( <%- JSON.stringify({content: article.text}) %>.content )
       )
+
+    })
 
     </script>
 
