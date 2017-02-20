@@ -38,12 +38,14 @@ textarea[class=form-control] {
 #log-subtitle{
   font-style: italic;
   color: #888;
-  letter-spacing: -1px;
   font-size: 18px;
   margin-top: 10px;
 }
 #title{
   font-weight: 700;
+}
+#title, #log-subtitle {
+  font-family: 'Montserrat', sans-serif;
 }
 /* // index preview style */
 
@@ -51,7 +53,7 @@ textarea[class=form-control] {
 #log-end{
   text-align: center;
   color: #888;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 50px;
 }
 .article {
@@ -65,7 +67,4 @@ textarea[class=form-control] {
 }
 #article-text {
   margin-top: 25px;
-}
-.bolder {
-  font-weight: 700;
 }
