@@ -5,14 +5,12 @@ body {
 .navbar-inverse {
   background: transparent;
   border: 0;
+  font-family: 'Montserrat', sans-serif;
 }
-.navbar-inverse .navbar-nav>li>a {
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
   font-weight: bold;
   padding: 15px 0;
   margin: 0 10px;
-  color: #333;
-}
-.navbar-inverse .navbar-brand {
   color: #333;
 }
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
