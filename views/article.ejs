@@ -15,9 +15,9 @@
 
           <h1 id="title"><%= article.title %></h1>
           <h4 id="log-subtitle">// <%= article.subtitle %></h4>
-          <h5> { author: "<%= article.author %>", date: "<%= article.date %>" } </h5>
+          <h5> { author: "<span class="bolder"><%= article.author %></span>", date: "<span class="bolder"><%= article.date %></span>" } </h5>
           <img class="article-image" src="<%= article.image %>" />
-          <div id="article-text"></div>         
+          <div id="article-text"></div>       
           <h5 id="log-end">/* end article */</h5>
 
         </div>
