@@ -42,6 +42,7 @@ module.exports = function(app) {
   });
 
   app.post('/newArticle', function(req, res){
+    if (req.user.admin) {
     var newArticle = new Article({
         title: req.body.title,
         subtitle: req.body.subtitle,
@@ -54,6 +55,9 @@ module.exports = function(app) {
         .then(function(){
             res.redirect('/');
         })
+    } else {
+        res.redirect('/')
+    }
   });
 
   app.get('/register/'+process.env.SECRET_LINK, function(req, res){
