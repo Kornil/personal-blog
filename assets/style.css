@@ -68,3 +68,6 @@ textarea[class=form-control] {
 #article-text {
   margin-top: 25px;
 }
+#article-info {
+  padding: 50px 0; 
+}
