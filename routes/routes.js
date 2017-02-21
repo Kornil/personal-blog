@@ -37,7 +37,7 @@ module.exports = function(app) {
         var authorFixed = req.params.author.replace(/_/g," ");
         User.findOne({username: authorFixed}).exec()
             .then(function(author){
-                if(!author.length)
+                if(!author)
                     res.send(authorFixed +" is not a registered user");
                 else                
                     res.render('author', { user: req.user, author: author });
