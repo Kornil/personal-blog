@@ -14,8 +14,10 @@
         <div class="col-md-10 col-md-offset-1 article">
 
           <h1 id="title"><%= article.title %></h1>          
-          <h5 id="article-info"><i>Written by </i><b><%= article.author.toUpperCase(); %></b> | <i><%= article.date %></i></h5>    
-          <img class="article-image" src="<%= article.image %>" />
+          <h5 id="article-info"><i>Written by </i>
+            <a href="/<%= article.author.replace(/ /g,'_'); %>"><b><%= article.author.toUpperCase(); %></b></a> | 
+            <i><%= article.date %></i></h5>    
+          <img class="article-image" id="article-image-full" src="<%= article.image %>" />
           <div id="article-text"></div>       
           <h5 id="log-end">/* end article */</h5>
 

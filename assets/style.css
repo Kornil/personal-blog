@@ -59,7 +59,12 @@ textarea[class=form-control] {
 .article-image {
   width: 100%;
   object-fit: cover;
+}
+#article-image-full {  
   max-height: 60vh;
+}
+.article-image-preview {
+  max-height: 30vh;
 }
 #article-text {
   margin-top: 35px;

@@ -31,18 +31,25 @@ module.exports = function(app) {
             })
     });
 
-    app.get('/profile',
-    require('connect-ensure-login').ensureLoggedIn(),
+    app.get('/:author',
+    //require('connect-ensure-login').ensureLoggedIn(),
     function(req, res){
-        res.render('profile', { user: req.user });
+        var authorFixed = req.params.author.replace(/_/g," ");
+        User.findOne({username: authorFixed}).exec()
+            .then(function(author){
+                if(!author.length)
+                    res.send("this user is not registered");
+                else                
+                    res.render('author', { user: req.user, author: author });
+            })
     });
 
-    app.get('/logout', function(req, res) {
+    app.get('/logout/return', function(req, res) {
       req.logout();
       res.redirect('/');
   });
 
-  app.post('/newArticle', function(req, res){
+  app.post('/newArticle/return', function(req, res){
     if (req.user.admin) {
     var newArticle = new Article({
         title: req.body.title,
