@@ -35,17 +35,10 @@ textarea[class=form-control] {
 #article_preview:hover, #article_preview:focus {
   text-decoration: none;
 }
-#log-subtitle{
-  font-style: italic;
-  color: #888;
-  font-size: 18px;
-  margin-top: 10px;
-}
 #title{
   font-weight: 700;
-}
-#title, #log-subtitle {
   font-family: 'Montserrat', sans-serif;
+  margin-bottom: 25px;
 }
 /* // index preview style */
 
@@ -69,5 +62,6 @@ textarea[class=form-control] {
   margin-top: 25px;
 }
 #article-info {
-  padding: 50px 0; 
+  margin-bottom: 20px;
+  font-size: 13px; 
 }

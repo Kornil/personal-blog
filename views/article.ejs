@@ -13,10 +13,9 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1 article">
 
-          <h1 id="title"><%= article.title %></h1>
-          <h4 id="log-subtitle">// <%= article.subtitle %></h4>          
+          <h1 id="title"><%= article.title %></h1>          
+          <h5 id="article-info"><i>Written by: </i><b><%= article.author.toUpperCase(); %></b> | <i><%= article.date %></i></h5>    
           <img class="article-image" src="<%= article.image %>" />
-          <h5 id="article-info"><i>Written by: </i><b><%= article.author.toUpperCase(); %></b> | <i><%= article.date %></i></h5>
           <div id="article-text"></div>       
           <h5 id="log-end">/* end article */</h5>
 
