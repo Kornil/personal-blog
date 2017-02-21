@@ -38,7 +38,7 @@ module.exports = function(app) {
         User.findOne({username: authorFixed}).exec()
             .then(function(author){
                 if(!author.length)
-                    res.send("${authorFixed} is not a registered user");
+                    res.send(authorFixed +" is not a registered user");
                 else                
                     res.render('author', { user: req.user, author: author });
             })
