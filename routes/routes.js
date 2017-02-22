@@ -24,8 +24,9 @@ module.exports = function(app) {
         res.redirect('/');
     });
 
-    app.get('/article/:id', function(req, res){
-        Article.findById(req.params.id).exec()
+    app.get('/:author/:title', function(req, res){
+        var authorFixed = req.params.author.replace(/_/g," ");
+        Article.findOne({author: authorFixed, title: req.params.title}).exec()
             .then(function(article){
                 res.render('article', { user: req.user, article: article });
             })
