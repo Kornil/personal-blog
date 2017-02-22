@@ -10,12 +10,21 @@
 
     <% include ./partials/nav %>
 
+    <p>
+    Username: <%= author.username %><br/>
+    <% if (author.email) { %>
+    Email: <%= author.email %><br/>
+    <% } %>
+    </p>
+    <img src="<%= author.picture %>" />
+
     <div class="container">
       
       <div class="row">
         <div class="col-md-8">
 
           <% for(var i = articles.length-1; i >= 0; i--) { %>
+          <h5 id="article-info"><i>Written by </i>
           <a id="article_preview" href="/<%= articles[i].author.replace(/ /g,'_') %>/<%= articles[i].title.replace(/ /g,'_'); %>">
             <h1 id="title"><%= articles[i].title %></h1>        
           </a>
@@ -28,11 +37,3 @@
       </div>
 
     </body>
-
-<p>
-Username: <%= author.username %><br/>
-<% if (author.email) { %>
-Email: <%= author.email %><br/>
-<% } %>
-</p>
-<img src="<%= author.picture %>" />
