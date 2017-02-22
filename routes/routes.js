@@ -26,7 +26,8 @@ module.exports = function(app) {
 
     app.get('/:author/:title', function(req, res){
         var authorFixed = req.params.author.replace(/_/g," ");
-        Article.findOne({author: authorFixed, title: req.params.title}).exec()
+        var titleFixed = req.params.title.replace(/_/g," ");
+        Article.findOne({author: authorFixed, title: titleFixed}).exec()
             .then(function(article){
                 res.render('article', { user: req.user, article: article });
             })
