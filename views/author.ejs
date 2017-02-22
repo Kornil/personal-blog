@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+	<% include ./partials/head %>
+
+  </head>
+
+  <body>
+
+    <% include ./partials/nav %>
+
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-8">
+
+          <% for(var i = articles.length-1; i >= 0; i--) { %>
+          <a id="article_preview" href="/<%= articles[i].author.replace(/ /g,'_') %>/<%= articles[i].title.replace(/ /g,'_'); %>">
+            <h1 id="title"><%= articles[i].title %></h1>        
+          </a>
+          <a href="/<%= articles[i].author.replace(/ /g,'_'); %>"><b><%= articles[i].author.toUpperCase(); %></b></a> | 
+            <i><%= articles[i].date %></i></h5>
+          <img class="article-image article-image-preview" src="<%= articles[i].image %>" />
+        <% } %>
+
+        </div>
+      </div>
+
+    </body>
+
 <p>
 Username: <%= author.username %><br/>
 <% if (author.email) { %>

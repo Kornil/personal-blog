@@ -41,8 +41,12 @@ module.exports = function(app) {
             .then(function(author){
                 if(!author)
                     res.send(authorFixed +" is not a registered user");
-                else                
-                    res.render('author', { user: req.user, author: author });
+                else{
+                    Article.find({author: author.username}).exec()
+                        .then(function(articles){
+                            res.render('author', { user: req.user, author: author, articles: articles });
+                        })
+                }           
             })
     });
 
