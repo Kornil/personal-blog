@@ -73,3 +73,6 @@ textarea[class=form-control] {
   margin-bottom: 20px;
   font-size: 13px; 
 }
+#article-info a {
+  color: #333;
+}
