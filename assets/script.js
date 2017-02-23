@@ -10,4 +10,10 @@ $(document).ready(function(){
     );
   });
 
+  $('#comments-new').on('change keyup paste', function() {
+    $('#comments-preview').html(
+      marked( $('#comments-new').val() )
+    );
+  });
+
 });

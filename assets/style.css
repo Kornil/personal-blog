@@ -93,3 +93,6 @@ textarea[class=form-control] {
 #comments-title {
   font-family: 'Montserrat', sans-serif;
 }
+.new-comment {
+  margin: 10px; 
+}
