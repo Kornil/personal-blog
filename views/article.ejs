@@ -26,7 +26,11 @@
             
           <div class="row new-comment">
             <div class="col-md-6">
+              <% if (typeof user !== "undefined") { %>
               <textarea id="comments-new" class="form-control" placeholder="Write a comment" rows="6"></textarea>
+              <% } else { %>
+              <textarea id="comments-new" class="form-control" placeholder="Log in to write a comment" rows="6" disabled></textarea>
+              <% } %>
             </div>
             <div class="col-md-6">
               <div id="comments-preview"></div>

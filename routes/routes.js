@@ -19,9 +19,9 @@ module.exports = function(app) {
       'https://www.googleapis.com/auth/plus.profile.emails.read' ] }));
 
     app.get('/login/google/return', 
-    passport.authenticate('google', { failureRedirect: '/login' }),
+    passport.authenticate('google', { failureRedirect: '/login/google' }),
     function(req, res) {
-        res.redirect('/');
+        res.redirect('back');
     });
 
     app.get('/:author/:title', function(req, res){
