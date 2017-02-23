@@ -61,6 +61,7 @@ textarea[class=form-control] {
 .article {
   font-family: 'Inconsolata', monospace;
   padding-top: 25px;
+  border: 1px solid #888;
 }
 .article-image {
   width: 100%;
