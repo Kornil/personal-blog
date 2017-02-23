@@ -16,7 +16,7 @@
         <div class="col-md-8">
 
         <% for(var i = articles.length-1; i >= 0; i--) { %>
-          <div class="article">
+          <div class="article article-preview">
             <h5 id="article-info"><i>Written by </i>
             <a href="/<%= articles[i].author.replace(/ /g,'_'); %>"><b><%= articles[i].author.toUpperCase(); %></b></a> | 
               <i><%= articles[i].date %></i></h5>

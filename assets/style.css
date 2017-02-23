@@ -4,6 +4,9 @@
 body {
   padding-top: 50px;
   background: #f2f2f2;
+  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 /* logo style */
 .navbar-inverse .navbar-brand:focus #logo-blog, .navbar-inverse .navbar-brand:hover #logo-blog {
@@ -59,10 +62,11 @@ textarea[class=form-control] {
   margin-top: 50px;
 }
 .article {
-  font-family: 'Inconsolata', monospace;
   padding: 10px;
-  border: 1px solid #e5e5e5;
   margin-bottom: 10px;
+}
+.article-preview {
+  border: 1px solid #e5e5e5;
 }
 .article-image {
   width: 100%;
@@ -76,6 +80,8 @@ textarea[class=form-control] {
 }
 #article-text {
   margin-top: 35px;
+  padding: 0 10%;
+  font-size: 16px;
 }
 #article-info {
   margin-bottom: 20px;
