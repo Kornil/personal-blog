@@ -27,9 +27,13 @@
           <div class="row new-comment">
             <div class="col-md-6">
               <% if (typeof user !== "undefined") { %>
-              <textarea id="comments-new" class="form-control" placeholder="Write a comment" rows="6"></textarea>
+              <form method="post" action="/comment/<%= article._id %>">
+                <textarea name="newComment" id="comments-new" class="form-control"
+                 placeholder="Write a comment" rows="6"></textarea>
+                <input type="submit" class="btn btn-success" value="Submit">
+              </form>
               <% } else { %>
-              <textarea id="comments-new" class="form-control" placeholder="Log in to write a comment" rows="6" disabled></textarea>
+              <textarea id="comments-new" class="form-control disabled-comment" placeholder="Log in to write a comment" rows="6" disabled></textarea>
               <% } %>
             </div>
             <div class="col-md-6">

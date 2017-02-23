@@ -94,5 +94,8 @@ textarea[class=form-control] {
   font-family: 'Montserrat', sans-serif;
 }
 .new-comment {
-  margin: 10px; 
+  margin: 20px; 
+}
+.disabled-comment::-webkit-input-placeholder, .disabled-comment:-moz-placeholder, .disabled-comment::-moz-placeholder, .disabled-comment:-ms-input-placeholder  {
+  font-size: 700;
 }

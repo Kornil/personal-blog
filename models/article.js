@@ -9,6 +9,8 @@ var Article = new Schema({
   date: String,
   tags: [String],
   comments: [Schema.Types.Mixed],
+  likes: Number,
+  likedBy: [String]
 });
 
 module.exports = mongoose.model('Article', Article);

@@ -50,6 +50,19 @@ module.exports = function(app) {
             })
     });
 
+    app.post('/comment/:id', require('connect-ensure-login').ensureLoggedIn(), function(req, res){
+        Article.findByIdAndUpdate(req.params.id, { $push: { comments: {
+            comment: req.body.newComment,
+            author: req.user.username,
+            date: moment().format('MMMM Do YYYY'),
+            likes: 0,
+            likedBy: []
+        } } }).exec()
+            .then(function(){
+                res.redirect('back');
+            })
+    });
+
     app.get('/logout/return', function(req, res) {
       req.logout();
       res.redirect('/');
@@ -63,7 +76,9 @@ module.exports = function(app) {
         text: req.body.text,
         author: req.user.username,
         date: moment().format('MMMM Do YYYY'),
-        comments: []
+        comments: [],
+        likes: 0,
+        likedBy: []
     })
     newArticle.save()
         .then(function(){
