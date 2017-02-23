@@ -62,7 +62,8 @@ module.exports = function(app) {
         image: req.body.image,
         text: req.body.text,
         author: req.user.username,
-        date: moment().format('MMMM Do YYYY')
+        date: moment().format('MMMM Do YYYY'),
+        comments: []
     })
     newArticle.save()
         .then(function(){
