@@ -7,7 +7,7 @@ body {
 }
 /* logo style */
 .navbar-inverse .navbar-brand:focus #logo-blog, .navbar-inverse .navbar-brand:hover #logo-blog {
-  color: #f1c40f;
+  color: var(--primeColor);
 }
 .navbar-inverse .navbar-brand:focus #logo-blog, .navbar-inverse .navbar-brand:hover #logo-it {
   color: #333;
@@ -39,12 +39,7 @@ textarea[class=form-control] {
 }
 /* index preview style */
 #article_preview {
-  display: block;
-  font-weight: normal;
-  text-decoration: none;
   color: #333;
-  font-family: 'Inconsolata', monospace;
-  margin-bottom: 75px;
 }
 #article_preview:hover, #article_preview:focus {
   text-decoration: none;
@@ -82,7 +77,7 @@ textarea[class=form-control] {
 }
 #article-info {
   margin-bottom: 20px;
-  font-size: 13px; 
+  font-size: 13px;
 }
 #article-info a {
   color: #333;
