@@ -90,3 +90,6 @@ textarea[class=form-control] {
 #article-info a {
   color: #333;
 }
+#comments-title {
+  font-family: 'Montserrat', sans-serif;
+}

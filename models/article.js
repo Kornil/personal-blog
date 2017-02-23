@@ -7,7 +7,8 @@ var Article = new Schema({
   text: String,
   author: String,
   date: String,
-  tags: [String]
+  tags: [String],
+  comments: Schema.Types.Mixed,
 });
 
 module.exports = mongoose.model('Article', Article);

@@ -20,6 +20,21 @@
           <img class="article-image" id="article-image-full" src="<%= article.image %>" />
           <div id="article-text"></div>       
           <h5 id="log-end">/* end article */</h5>
+          <hr>
+          
+          <h4 id="comments-title">Comments</h4>
+
+          <textarea placeholder="Write a comment" rows="6"></textarea>
+
+          <% for(var i = article.comments.length -1; i >= 0; i--) { %>
+          <div class="comments-body">
+            <div class="single-comment">
+              <h5><%= article.comments[i].author %><br>
+              <%= article.comments[i].date %></h5>
+              <%= article.comments[i] %>
+            </div>
+          </div>
+          <% } %>
 
         </div>
       </div>
