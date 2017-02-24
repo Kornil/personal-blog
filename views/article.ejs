@@ -62,7 +62,7 @@
         marked( <%- JSON.stringify({content: article.text}) %>.content )
       )
 
-      var comments = <%= JSON.stringify(article.comments) || [] %>;
+      var comments = <%- JSON.stringify(article.comments) %>;
       for(var i = comments.length - 1; i >= 0; i--){
 
         var $comment = $("<div>", {"class": "single-comment"});
