@@ -19,7 +19,8 @@ a, a:hover {
 .navbar-inverse .navbar-brand:focus #logo-blog, .navbar-inverse .navbar-brand:hover #logo-blog {
   color: var(--primeColor);
 }
-.navbar-inverse .navbar-brand:focus #logo-it, .navbar-inverse .navbar-brand:hover #logo-it {
+.navbar-inverse .navbar-brand:focus #logo-it, .navbar-inverse .navbar-brand:hover #logo-it,
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand {
   color: #333;
 }
 #logo-it {
@@ -47,7 +48,7 @@ textarea[class=form-control] {
   resize: none;
 }
 /* index preview style */
-.article_preview-link, .article_preview-link:hover, .article_preview-link:focus {
+a.article_preview-link, a.article_preview-link:hover, a.article_preview-link:focus {
   text-decoration: none;
 }
 #title{
