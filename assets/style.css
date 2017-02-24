@@ -12,17 +12,15 @@ body {
 p {  
   font-size: 16px;
 }
-a, a:hover,
-.navbar-inverse .navbar-brand:focus #logo-blog, .navbar-inverse .navbar-brand:hover #logo-it,
-.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+a, a:hover {
   color: inherit;
 }
 /* logo style */
 .navbar-inverse .navbar-brand:focus #logo-blog, .navbar-inverse .navbar-brand:hover #logo-blog {
   color: var(--primeColor);
 }
-.navbar-inverse .navbar-brand:focus #logo-blog, .navbar-inverse .navbar-brand:hover #logo-it {
-  /*color: #333;*/
+.navbar-inverse .navbar-brand:focus #logo-it, .navbar-inverse .navbar-brand:hover #logo-it {
+  color: #333;
 }
 #logo-it {
   font-weight: 900;
@@ -38,7 +36,7 @@ a, a:hover,
   margin: 0 10px;
 }
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-  /*color: #333;*/
+  color: #333;
   text-decoration: none;
   box-shadow: inset 0 -3px 0 0 var(--primeColor);
 }
@@ -49,10 +47,7 @@ textarea[class=form-control] {
   resize: none;
 }
 /* index preview style */
-#article_preview {
-  /*color: #333;*/
-}
-#article_preview:hover, #article_preview:focus {
+.article_preview-link, .article_preview-link:hover, .article_preview-link:focus {
   text-decoration: none;
 }
 #title{
