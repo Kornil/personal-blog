@@ -99,3 +99,9 @@ textarea[class=form-control] {
 .disabled-comment::-webkit-input-placeholder, .disabled-comment:-moz-placeholder, .disabled-comment::-moz-placeholder, .disabled-comment:-ms-input-placeholder  {
   font-size: 700;
 }
+.single-comment {
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  width: 50%;
+  margin: 10px auto;
+}

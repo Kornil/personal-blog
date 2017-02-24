@@ -52,7 +52,7 @@ module.exports = function(app) {
 
     app.post('/comment/:id', require('connect-ensure-login').ensureLoggedIn(), function(req, res){
         Article.findByIdAndUpdate(req.params.id, { $push: { comments: {
-            comment: req.body.newComment,
+            text: req.body.newComment,
             author: req.user.username,
             date: moment().format('MMMM Do YYYY'),
             likes: 0,
