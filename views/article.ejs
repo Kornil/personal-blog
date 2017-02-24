@@ -45,8 +45,8 @@
           <div class="comments-body">
             <div class="single-comment">
               <h5><b><%= article.comments[i].author %></b><br>
-              <%= article.comments[i].date %></h5>
-              <div><%- JSON.stringify({content: article.comments[i].text}).content %></div>
+              <i><%= article.comments[i].date %></i></h5>
+              <div class="comment-body"><%- JSON.stringify(article.comments[i].text) %></div>
             </div>
           </div>
           <% } %>
@@ -60,6 +60,10 @@
 
       $("#article-text").html(
         marked( <%- JSON.stringify({content: article.text}) %>.content )
+      )
+
+      $(".comment-body").html(
+        marked( $(this).val() )
       )
 
     })
