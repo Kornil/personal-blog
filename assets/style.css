@@ -12,7 +12,9 @@ body {
 p {  
   font-size: 16px;
 }
-a, a:hover {
+a, a:hover,
+.navbar-inverse .navbar-brand:focus #logo-blog, .navbar-inverse .navbar-brand:hover #logo-it,
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
   color: inherit;
 }
 /* logo style */
