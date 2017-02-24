@@ -1,5 +1,6 @@
 :root {
   --primeColor: #f1c40f;
+  --borderColor: #e5e5e5;
 }
 body {
   padding-top: 50px;
@@ -70,7 +71,8 @@ a.article_preview-link, a.article_preview-link:hover, a.article_preview-link:foc
   margin-bottom: 10px;
 }
 .article-preview {
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--borderColor);
+  background: #f4f4f4;
 }
 .article-image {
   width: 100%;
@@ -104,10 +106,17 @@ a.article_preview-link, a.article_preview-link:hover, a.article_preview-link:foc
 }
 .single-comment {
   padding: 10px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--borderColor);
   width: 50%;
   margin: 10px auto;
+  background: #f4f4f4;
 }
-.article a, .comments-body a {
+.article-text a, .comments-body a {
   text-decoration: underline;
 }
+/* author page */
+#author-name{
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 50px;
+}
+  

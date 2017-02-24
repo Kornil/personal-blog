@@ -51,7 +51,7 @@ module.exports = function(app) {
         Article.findByIdAndUpdate(req.params.id, { $push: { comments: {
             text: req.body.newComment,
             author: req.user.username,
-            date: moment().format('MMMM Do YYYY, h:mm a'),
+            date: moment().format('MMMM Do YYYY'),
             likes: 0,
             likedBy: []
         } } }).exec()
