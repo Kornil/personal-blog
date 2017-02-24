@@ -20,7 +20,7 @@ a, a:hover {
   color: var(--primeColor);
 }
 .navbar-inverse .navbar-brand:focus #logo-it, .navbar-inverse .navbar-brand:hover #logo-it,
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand {
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
   color: #333;
 }
 #logo-it {
