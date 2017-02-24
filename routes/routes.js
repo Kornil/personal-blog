@@ -19,10 +19,7 @@ module.exports = function(app) {
       'https://www.googleapis.com/auth/plus.profile.emails.read' ] }));
 
     app.get('/login/google/return', 
-    passport.authenticate('google', { successReturnToOrRedirect: '/', failureRedirect: '/login/google' }),
-    /*function(req, res) {
-        res.redirect('back');
-    });*/
+    passport.authenticate('google', { successReturnToOrRedirect: '/', failureRedirect: '/login/google' }));
 
     app.get('/:author/:title', function(req, res){
         var authorFixed = req.params.author.replace(/_/g," ");
