@@ -112,3 +112,6 @@ textarea[class=form-control] {
   width: 50%;
   margin: 10px auto;
 }
+.article a, .comments-body a {
+  text-decoration: underline;
+}
