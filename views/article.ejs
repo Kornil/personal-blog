@@ -46,7 +46,7 @@
             <div class="single-comment">
               <h5><b><%= article.comments[i].author %></b><br>
               <i><%= article.comments[i].date %></i></h5>
-              <div class="comment-body"><%- article.comments[i].text %></div>
+              <div class="comment-body"><%- JSON.stringify(article.comments[i].text) %></div>
             </div>
           </div>
           <% } %>
