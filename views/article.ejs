@@ -20,7 +20,7 @@
           <h1 id="title"><%= article.title %></h1>          
           <h5 id="article-info"><i>Written by </i>
             <a href="/<%= article.author.replace(/ /g,'_'); %>"><b><%= article.author.toUpperCase(); %></b></a> | 
-            <i><%= article.date %></i> | <%= articles[i].likes %> &nbsp;
+            <i><%= article.date %></i> | <%= article.likes %> &nbsp;
             <span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
               <i class="fa fa-diamond <%= liked %>" aria-hidden="true"></i>
             </span></h5>
