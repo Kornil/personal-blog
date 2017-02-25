@@ -16,9 +16,9 @@ $(document).ready(function(){
     );
   });
 
-  function submitLike(id){
+  function submitLike(){
     $.ajax({
-      url: '/like/' + id,
+      url: '/like/' + $(this).attr("id"),
       type: 'POST',
       complete: function(){
         location.reload(true);
