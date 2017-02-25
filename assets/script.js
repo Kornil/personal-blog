@@ -16,4 +16,14 @@ $(document).ready(function(){
     );
   });
 
+  function submitLike(id){
+    $.ajax({
+      url: '/like/' + id,
+      type: 'POST',
+      complete: function(){
+        location.reload(true);
+      }
+    });
+  };
+
 });

@@ -1,8 +1,12 @@
+<% if (user) { var liked = (images[i].likedBy.includes(user.username) ? "liked" : "" } } %>
 <div class="article article-preview">
   <h5 id="article-info"><i>Written by </i>
     <a class="article-preview-link" href="/<%= articles[i].author.replace(/ /g,'_'); %>">
       <b><%= articles[i].author.toUpperCase(); %></b>
-    </a> | <i><%= articles[i].date %></i>
+    </a> | <i><%= articles[i].date %></i> | <%= articles[i].likes %> 
+    <span onClick='<%- (typeof user !== "undefined") ? "submitLike(article[i]._id);" : "null" %>' >
+      <i class="fa fa-diamond <%= liked %>" aria-hidden="true"></i>
+    </span>
   </h5>
   <a class="article-preview-link" href="/<%= articles[i].author.replace(/ /g,'_') %>/<%= articles[i].title.replace(/ /g,'_'); %>">
     <h1 id="title"><%= articles[i].title %></h1>

@@ -86,6 +86,27 @@ module.exports = function(app) {
     }
   });
 
+  app.post('/like/:id', function(req, res){
+
+    Article.findById(req.params.id).exec()
+        .then(function(article){
+
+            if(!article.likedBy.includes(req.user.username)) {
+                Article.findByIdAndUpdate(req.params.id, {$inc: { likes: 1}, $push: { likedBy: req.user.username } }).exec()
+                    .then(function(){
+                        res.redirect('back');
+                    })
+            }else{
+                Article.findByIdAndUpdate(req.params.id, {$inc: { likes: -1}, $pull: { likedBy: req.user.username } }).exec()
+                    .then(function(){
+                        res.redirect('back');
+                    })
+            }
+
+        });
+        
+  });
+
   app.get('/register/'+process.env.SECRET_LINK, function(req, res){
     var profile = req.user;
     var newUser = new User ({
