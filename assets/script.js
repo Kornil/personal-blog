@@ -16,14 +16,4 @@ $(document).ready(function(){
     );
   });
 
-  function submitLike(){
-    $.ajax({
-      url: '/like/' + $(this).attr("id"),
-      type: 'POST',
-      complete: function(){
-        location.reload(true);
-      }
-    });
-  };
-
 });

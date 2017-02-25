@@ -24,3 +24,17 @@
     <script src="/assets/script.js"></script>
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+
+    <script>
+        
+    function submitLike(){
+        $.ajax({
+        url: '/like/' + $(this).attr("id"),
+        type: 'POST',
+        complete: function(){
+            location.reload(true);
+        }
+        });
+    };
+
+    </script>
