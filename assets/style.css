@@ -123,3 +123,6 @@ a.article_preview-link, a.article_preview-link:hover, a.article_preview-link:foc
 .liked, .fa-diamond:hover {
   color: var(--primeColor);
 }
+.fa-diamond {
+  cursor: pointer;
+}
