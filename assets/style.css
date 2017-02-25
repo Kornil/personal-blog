@@ -46,7 +46,7 @@ a, a:hover {
 .modal {
   margin: auto;
 }
-textarea[class=form-control] {
+textarea.form-control {
   resize: none;
 }
 /* index preview style */
