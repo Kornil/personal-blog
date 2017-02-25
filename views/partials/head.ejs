@@ -28,6 +28,7 @@
     <script>
         
     function submitLike(id){
+        console.log(id);
         $.ajax({
             url: '/like/' + id,
             type: 'POST',
