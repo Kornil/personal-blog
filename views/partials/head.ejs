@@ -27,13 +27,13 @@
 
     <script>
         
-    function submitLike(){
+    function submitLike(id){
         $.ajax({
-        url: '/like/' + $(this).attr("id"),
-        type: 'POST',
-        complete: function(){
-            location.reload(true);
-        }
+            url: '/like/' + id,
+            type: 'POST',
+            complete: function(){
+                location.reload(true);
+            }
         });
     };
 

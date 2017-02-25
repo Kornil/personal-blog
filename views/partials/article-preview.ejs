@@ -6,7 +6,7 @@
     <a class="article-preview-link" href="/<%= articles[i].author.replace(/ /g,'_'); %>">
       <b><%= articles[i].author.toUpperCase(); %></b>
     </a> | <i><%= articles[i].date %></i> | <%= articles[i].likes %> 
-    <span id="<%= articles[i]._id %>" onClick='<%= (typeof user !== "undefined") ? "submitLike();" : "null" %>' >
+    <span onClick='<%= (typeof user !== "undefined") ? "submitLike("+ articles[i]._id +");" : "null" %>' >
       <i class="fa fa-diamond <%= liked %>" aria-hidden="true"></i>
     </span>
   </h5>
