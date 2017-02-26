@@ -30,9 +30,17 @@ module.exports = function(app) {
             })
     });
 
-    app.get('/:author',
-    //require('connect-ensure-login').ensureLoggedIn(),
-    function(req, res){
+    app.post('/update/:id', function(req, res){
+        Article.findByIdAndUpdate(req.params.id, { $set: {
+            text: req.body.text,
+            tags: req.body.tags
+        } } ).exec()
+            .then(function(article){
+                res.redirect('back');
+            })
+    })
+
+    app.get('/:author', function(req, res){
         var authorFixed = req.params.author.replace(/_/g," ");
         User.findOne({username: authorFixed}).exec()
             .then(function(author){
@@ -61,9 +69,10 @@ module.exports = function(app) {
     });
 
     app.get('/logout/return', function(req, res) {
-      req.logout();
-      res.redirect('/');
-  });
+        req.session.destroy();
+        req.logout();
+        res.redirect('/');
+    });
 
   app.post('/newArticle/return', function(req, res){
     if (req.user.admin) {

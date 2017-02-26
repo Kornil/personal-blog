@@ -28,12 +28,15 @@
           <div id="article-text">
             <!-- article here -->
           </div>
-          <h5><span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
-            <i class="fa fa-diamond fa-lg <%= liked %>" aria-hidden="true"></i>
-          </span> <%= article.likes %> | 
-          <a href="#comments-body">
-            <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> <%= article.comments.length %>
-          </a></h5>
+
+          <div id="likes-comments">
+            <h5><span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
+              <i class="fa fa-diamond fa-lg <%= liked %>" aria-hidden="true"></i>
+            </span> <%= article.likes %> | 
+            <a href="#comments-body">
+              <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> <%= article.comments.length %>
+            </a></h5>
+          </div>
 
           <h5 id="log-end">/* end article */</h5>
           <hr>  
@@ -57,7 +60,7 @@
             </div>
           </div>
           
-          <div class="comments-body">
+          <div id="comments-body">
             <!-- comments here -->
           </div>
 
