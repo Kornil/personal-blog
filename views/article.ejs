@@ -20,16 +20,23 @@
           <h1 id="title"><%= article.title %></h1>          
           <h5 id="article-info"><i>Written by </i>
             <a href="/<%= article.author.replace(/ /g,'_'); %>"><b><%= article.author.toUpperCase(); %></b></a> | 
-            <i><%= article.date %></i> | <%= article.likes %> &nbsp;
+            <i><%= article.date %></i> | <%= article.likes %> 
             <span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
               <i class="fa fa-diamond <%= liked %>" aria-hidden="true"></i>
             </span></h5>
           <img class="article-image" id="article-image-full" src="<%= article.image %>" />
           <div id="article-text">
             <!-- article here -->
-          </div>       
+          </div>
+          <h5><span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
+            <i class="fa fa-diamond fa-lg <%= liked %>" aria-hidden="true"></i>
+          </span> <%= article.likes %> | 
+          <a href="#comments-body">
+            <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> <%= article.comments.length %>
+          </a></h5>
+
           <h5 id="log-end">/* end article */</h5>
-          <hr>          
+          <hr>  
           
           <h4 id="comments-title">Comments</h4>
             
