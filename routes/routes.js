@@ -13,6 +13,12 @@ module.exports = function(app) {
                 res.render('index', { user: req.user, articles: articles });
             })        
     });
+    
+    app.get('/logout/return', function(req, res) {
+        req.session.destroy();
+        req.logout();
+        res.redirect('/');
+    });
 
     app.get('/login/google',
     passport.authenticate('google', { scope: [ 'https://www.googleapis.com/auth/plus.login',
@@ -20,15 +26,6 @@ module.exports = function(app) {
 
     app.get('/login/google/return', 
     passport.authenticate('google', { successReturnToOrRedirect: '/', failureRedirect: '/login/google' }));
-
-    app.get('/:author/:title', function(req, res){
-        var authorFixed = req.params.author.replace(/_/g," ");
-        var titleFixed = req.params.title.replace(/_/g," ");
-        Article.findOne({author: authorFixed, title: titleFixed}).exec()
-            .then(function(article){
-                res.render('article', { user: req.user, article: article });
-            })
-    });
 
     app.post('/update/:id', function(req, res){
         Article.findByIdAndUpdate(req.params.id, { $set: {
@@ -39,21 +36,6 @@ module.exports = function(app) {
                 res.redirect('back');
             })
     })
-
-    app.get('/:author', function(req, res){
-        var authorFixed = req.params.author.replace(/_/g," ");
-        User.findOne({username: authorFixed}).exec()
-            .then(function(author){
-                if(!author)
-                    res.send(authorFixed +" is not a registered user");
-                else{
-                    Article.find({author: author.username}).exec()
-                        .then(function(articles){
-                            res.render('author', { user: req.user, author: author, articles: articles });
-                        })
-                }           
-            })
-    });
 
     app.post('/comment/:id', require('connect-ensure-login').ensureLoggedIn(), function(req, res){
         Article.findByIdAndUpdate(req.params.id, { $push: { comments: {
@@ -66,12 +48,6 @@ module.exports = function(app) {
             .then(function(){
                 res.redirect('back');
             })
-    });
-
-    app.get('/logout/return', function(req, res) {
-        req.session.destroy();
-        req.logout();
-        res.redirect('/');
     });
 
   app.post('/newArticle/return', function(req, res){
@@ -134,5 +110,29 @@ module.exports = function(app) {
             res.redirect('/');
         })
   });
+
+  app.get('/:author', function(req, res){
+        var authorFixed = req.params.author.replace(/_/g," ");
+        User.findOne({username: authorFixed}).exec()
+            .then(function(author){
+                if(!author)
+                    res.send(authorFixed +" is not a registered user");
+                else{
+                    Article.find({author: author.username}).exec()
+                        .then(function(articles){
+                            res.render('author', { user: req.user, author: author, articles: articles });
+                        })
+                }           
+            })
+    });
+
+    app.get('/:author/:title', function(req, res){
+        var authorFixed = req.params.author.replace(/_/g," ");
+        var titleFixed = req.params.title.replace(/_/g," ");
+        Article.findOne({author: authorFixed, title: titleFixed}).exec()
+            .then(function(article){
+                res.render('article', { user: req.user, article: article });
+            })
+    });
 
 }
