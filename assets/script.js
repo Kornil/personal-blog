@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('#preview').html(
       marked(
         "<h1>"+$('#newArticleTitle').val()+"</h1>"+
-        "<h2>"+$('#newArticleSubtitle').val()+"</h2>"+
+        "<h2>"+$('#newArticleHeading').val()+"</h2>"+
         $('#newArticleTextArea').val()
       )
     );

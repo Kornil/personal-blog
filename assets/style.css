@@ -53,10 +53,16 @@ textarea.form-control {
 a.article_preview-link, a.article_preview-link:hover, a.article_preview-link:focus {
   text-decoration: none;
 }
-#title{
-  font-weight: 700;
+.title{
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 25px;
+  margin: 0;
+}
+.heading {
+  margin: 0;
+  color: #888;
+}
+.title-header {
+  margin: 5px 0 10px;
 }
 /* // index preview style */
 
@@ -90,12 +96,8 @@ a.article_preview-link, a.article_preview-link:hover, a.article_preview-link:foc
   padding: 0 10%;
 }
 #article-info {
-  margin-bottom: 20px;
   font-size: 13px;
 }
-/*#article-info a {
-  color: #333;
-}*/
 #comments-title {
   font-family: 'Montserrat', sans-serif;
 }
@@ -130,4 +132,7 @@ a.article_preview-link, a.article_preview-link:hover, a.article_preview-link:foc
   color: #888;
   margin-top: 50px;
   padding: 0 10%;
+}
+#comment-icon {
+  padding-left: 1em;
 }

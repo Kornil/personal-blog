@@ -17,13 +17,21 @@
             <% var liked = (article.likedBy.includes(user.username)) ? "liked" : ""; %>
           <% } %>
 
-          <h1 id="title"><%= article.title %></h1>          
+          <div class="title-header">
+            <h1 class="title"><%= article.title %></h1>
+            <h2 class="header"><%= article.header %></h2>
+          </div>
+
           <h5 id="article-info"><i>Written by </i>
             <a href="/<%= article.author.replace(/ /g,'_'); %>"><b><%= article.author.toUpperCase(); %></b></a> | 
             <i><%= article.date %></i> | <%= article.likes %> 
             <span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
               <i class="fa fa-diamond <%= liked %>" aria-hidden="true"></i>
-            </span></h5>
+            </span>
+            <a id="comment-icon" href="#comments-body">
+              <i class="fa fa-comment-o" aria-hidden="true"> <%= article.comments.length %> 
+            </a>
+            </h5>
           <img class="article-image" id="article-image-full" src="<%= article.image %>" />
           <div id="article-text">
             <!-- article here -->
@@ -32,9 +40,9 @@
           <div id="likes-comments">
             <h5><span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
               <i class="fa fa-diamond fa-lg <%= liked %>" aria-hidden="true"></i>
-            </span> <%= article.likes %> | 
-            <a href="#comments-body">
-              <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> <%= article.comments.length %>
+            </span>&nbsp; <%= article.likes %>  
+            <a id="comment-icon" href="#comments-body">
+              <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i>&nbsp; <%= article.comments.length %>
             </a></h5>
           </div>
 
@@ -80,7 +88,7 @@
 
         var $comment = $("<div>", {"class": "single-comment"});
 
-        $(".comments-body").append($comment);
+        $("#comments-body").append($comment);
         $comment.append(
           $('<h5>')
           .html("<b>"+comments[i].author+"</b><br><i>"+comments[i].date+"</i>")

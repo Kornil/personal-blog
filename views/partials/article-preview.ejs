@@ -9,9 +9,15 @@
     <span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ articles[i]._id +"');" : "null" %>' >
       <i class="fa fa-diamond <%= liked %>" aria-hidden="true"></i>
     </span>
+    <a id="comment-icon" href="/<%= articles[i].author.replace(/ /g,'_') %>/<%= articles[i].title.replace(/ /g,'_'); %>#comments-body">
+      <i class="fa fa-comment-o" aria-hidden="true"> <%= articles[i].comments.length %> 
+    </a>
   </h5>
-  <a class="article-preview-link" href="/<%= articles[i].author.replace(/ /g,'_') %>/<%= articles[i].title.replace(/ /g,'_'); %>">
-    <h1 id="title"><%= articles[i].title %></h1>
-    <img class="article-image article-image-preview" src="<%= articles[i].image %>" />
-  </a>
+  <div class="title-header">
+    <a class="article-preview-link" href="/<%= articles[i].author.replace(/ /g,'_') %>/<%= articles[i].title.replace(/ /g,'_'); %>">
+      <h2 class="title"><%= articles[i].title %></h2>
+      <h3 class="heading"><%= articles[i].heading %></h3>
+      <img class="article-image article-image-preview" src="<%= articles[i].image %>" />
+    </a>
+  </div>
 </div>

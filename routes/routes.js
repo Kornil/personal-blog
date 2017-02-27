@@ -54,6 +54,7 @@ module.exports = function(app) {
     if (req.user.admin) {
     var newArticle = new Article({
         title: req.body.title,
+        heading: req.body.heading,
         image: req.body.image,
         text: req.body.text,
         author: req.user.username,
