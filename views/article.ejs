@@ -33,11 +33,15 @@
             </a>
             </h5>
           <img class="article-image" id="article-image-full" src="<%= article.image %>" />
+
           <div id="article-text">
             <!-- article here -->
           </div>
 
           <div id="likes-comments">
+            <% if (typeof user !== "undefined" && user.username === article.author) %>
+              <button></button>
+            <% } %>
             <h5><span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
               <i class="fa fa-diamond fa-lg <%= liked %>" aria-hidden="true"></i>
             </span>&nbsp; <%= article.likes %>  

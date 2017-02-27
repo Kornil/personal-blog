@@ -93,7 +93,7 @@ module.exports = function(app) {
         
   });
 
-  app.get('/register/'+process.env.SECRET_LINK, function(req, res){
+  app.get('/register', function(req, res){
     var profile = req.user;
     var newUser = new User ({
         username: profile.username,
@@ -107,7 +107,6 @@ module.exports = function(app) {
     });
     newUser.save()
         .then(function(){
-            req.logout();
             res.redirect('/');
         })
   });

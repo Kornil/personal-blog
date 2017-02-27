@@ -20,13 +20,14 @@
         <li><a href="#"><%= user.username %></a></li>
         <% } %>
         <% if (typeof user !== "undefined" && user.admin) { %>
-            <li><a href="#" data-toggle="modal" data-target="#newArticle">New Article</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#newArticle">New Article</a></li>
+        <% } else if (typeof user !== "undefined" || !user.admin) { %>
+          <li><a href="#" data-toggle="modal" data-target="#becomeAuthor">Become an Author</a></li>
         <% } %>
         <% if (typeof user !== "undefined") { %>
         <li><a href="/logout/return">Logout</a></li>
         <% } %>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Become an Author</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
