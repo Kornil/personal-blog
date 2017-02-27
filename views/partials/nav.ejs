@@ -21,7 +21,7 @@
         <% } %>
         <% if (typeof user !== "undefined" && user.admin) { %>
           <li><a href="#" data-toggle="modal" data-target="#newArticle">New Article</a></li>
-        <% } else if (typeof user !== "undefined" || !user.admin) { %>
+        <% } else if (typeof user === "undefined" || typeof user !== "undefined" && !user.admin) { %>
           <li><a href="#" data-toggle="modal" data-target="#becomeAuthor">Become an Author</a></li>
         <% } %>
         <% if (typeof user !== "undefined") { %>
