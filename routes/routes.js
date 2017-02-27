@@ -93,7 +93,7 @@ module.exports = function(app) {
         
   });
 
-  app.get('/register', function(req, res){
+  app.get('/register/newAuthor', function(req, res){
     var profile = req.user;
     var newUser = new User ({
         username: profile.username,
