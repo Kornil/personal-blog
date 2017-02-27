@@ -10,7 +10,7 @@
       <i class="fa fa-diamond <%= liked %>" aria-hidden="true"></i>
     </span>
     <a id="comment-icon" href="/<%= articles[i].author.replace(/ /g,'_') %>/<%= articles[i].title.replace(/ /g,'_'); %>#comments-body">
-      <i class="fa fa-comment-o" aria-hidden="true"> <%= articles[i].comments.length %> 
+       <%= articles[i].comments.length %> <span><i class="fa fa-comment-o" aria-hidden="true"></i></span>
     </a>
   </h5>
   <div class="title-header">

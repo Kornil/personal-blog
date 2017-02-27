@@ -29,7 +29,7 @@
               <i class="fa fa-diamond <%= liked %>" aria-hidden="true"></i>
             </span>
             <a id="comment-icon" href="#comments-body">
-              <i class="fa fa-comment-o" aria-hidden="true"> <%= article.comments.length %> 
+              <%= article.comments.length %> <span><i class="fa fa-comment-o" aria-hidden="true"></i></span>
             </a>
             </h5>
           <img class="article-image" id="article-image-full" src="<%= article.image %>" />
