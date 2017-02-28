@@ -22,7 +22,7 @@
         <% if (typeof user !== "undefined" && user.admin) { %>
           <li><a href="#" data-toggle="modal" data-target="#newArticle">New Article</a></li>
         <% } else if (typeof user !== "undefined" && !user.admin) { %>
-          <li><a href="/register/newAuthor">Become an Author</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#authorModal">Become an Author</a></li>
         <% } %>
         <% if (typeof user !== "undefined") { %>
         <li><a href="/logout/return">Logout</a></li>
@@ -55,3 +55,25 @@
 
   </div>
 </div>
+<% } else if (typeof user !== "undefined" && !user.admin) { %>
+<div id="authorModal" class="modal fade" role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Privacy</h4>
+      </div>
+      <div class="modal-body">
+        <p>By clicking the button below, your username, mail and profile picture will be stored inside the website database and you will be able to write articles. Keep in mind that since I'm using a free database my storage is limited and I may delete accounts with no articles once in a while. If you only wish to read, comment and like others articles you don't need this. Click this button only if you wish to become an author.</p>
+        <a class="btn btn-primary" href="/register/newAuthor">Become an author</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<% } %>
