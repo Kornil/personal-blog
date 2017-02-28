@@ -55,7 +55,7 @@
 
   </div>
 </div>
-<% } else if (typeof user !== "undefined" && !user.admin) { %>
+<% if (typeof user !== "undefined" && !user.admin) { %>
 <div id="authorModal" class="modal fade" role="dialog" tabindex="-1">
   <div class="modal-dialog modal-sm">
 
