@@ -37,11 +37,45 @@
           <div id="article-text">
             <!-- article here -->
           </div>
+          
+          <!-- update article button and modal -->
+          <% if (typeof user !== "undefined" && user.username === article.author) { %>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#updateArticle">Become an Author</a>
+
+            <div id="updateArticle" class="modal fade" role="dialog" tabindex="-1">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Update Article</h4>
+                    </div>
+                    <div class="modal-body row">
+
+                    <div class="col col-md-6">
+                      <form method="post" action="/update/<%= article._id %<">
+                        <input id="newArticleHeading" class="form-control" name="heading" type="text" value="<%= article.heading %>" />
+                        <input class="form-control" name="image" type="url" value="<%= article.image %>" />
+                        <textarea id="newArticleTextArea" class="form-control" rows="20" type="text" name="text" value="<%= article.text %>"></textarea>
+                        <input type="submit" class="btn btn-success" value="Submit">
+                      </form>
+                    </div>
+
+                    <div class="col col-md-6" id="preview">
+                        
+                    </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+              </div>
+            </div>            
+
+          <% } %>
+          <!-- end update modal -->
 
           <div id="likes-comments">
-            <% if (typeof user !== "undefined" && user.username === article.author) %>
-              <button></button>
-            <% } %>
             <h5><span onclick='<%= (typeof user !== "undefined") ? "submitLike('"+ article._id +"');" : "null" %>' >
               <i class="fa fa-diamond fa-lg <%= liked %>" aria-hidden="true"></i>
             </span>&nbsp; <%= article.likes %>  

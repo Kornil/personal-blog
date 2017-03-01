@@ -110,6 +110,13 @@ module.exports = function(app) {
             res.redirect('/');
         })
   });
+  
+    app.post('/update/:id', function(req, res){
+        Article.findByIdAndUpdate(req.params.id, {$set: { heading: req.body.heading, text: req.body.text, image: req.body.image } } ).exec()
+            .then(function(article){
+                res.redirect('back');
+            })
+    });
 
   app.get('/:author', function(req, res){
         var authorFixed = req.params.author.replace(/_/g," ");
