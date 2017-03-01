@@ -40,7 +40,7 @@
           
           <!-- update article button and modal -->
           <% if (typeof user !== "undefined" && user.username === article.author) { %>
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#updateArticle">Become an Author</a>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#updateArticle">Modify article</a>
 
             <div id="updateArticle" class="modal fade" role="dialog" tabindex="-1">
               <div class="modal-dialog modal-lg">
@@ -55,7 +55,7 @@
                       <form method="post" action="/update/<%= article._id %>">
                         <input id="newArticleHeading" class="form-control" name="heading" type="text" value="<%= article.heading %>" />
                         <input class="form-control" name="image" type="url" value="<%= article.image %>" />
-                        <textarea id="newArticleTextArea" class="form-control" rows="20" type="text" name="text" value="<%= article.text %>"></textarea>
+                        <textarea id="newArticleTextArea" class="form-control" rows="20" type="text" name="text"><%= article.text %></textarea>
                         <input type="submit" class="btn btn-success" value="Submit">
                       </form>
                     </div>
