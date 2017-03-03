@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-var Article = new Schema({
+const Schema = mongoose.Schema;
+
+const Article = new Schema({
   title: String,
   heading: String,
   image: String,
@@ -11,7 +12,7 @@ var Article = new Schema({
   tags: [String],
   comments: [Schema.Types.Mixed],
   likes: Number,
-  likedBy: [String]
+  likedBy: [String],
 });
 
 module.exports = mongoose.model('Article', Article);

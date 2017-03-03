@@ -20,5 +20,10 @@
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
   }
 }
