@@ -3,13 +3,13 @@ const moment = require('moment');
 const Article = require('../models/article');
 const User = require('../models/user');
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.use(require('body-parser').urlencoded({ extended: true }));
 
   app.get('/', function (req, res) {
     Article.find({}).exec()
       .then((articles) => {
-        res.render('index', { user: req.user, articles: articles });
+        res.render('index', { user: req.user, articles });
       });
   });
 
@@ -118,11 +118,11 @@ module.exports = function(app) {
     User.findOne({ username: authorFixed }).exec()
       .then((author) => {
         if (!author)
-          res.send(authorFixed +" is not a registered user");
+          res.send(`${authorFixed} is not a registered user`);
         else {
           Article.find({ author: author.username }).exec()
             .then((articles) => {
-              res.render('author', { user: req.user, author: author, articles: articles });
+              res.render('author', { user: req.user, author, articles });
             });
         }
       });
@@ -133,7 +133,7 @@ module.exports = function(app) {
     const titleFixed = req.params.title.replace(/_/g, " ");
     Article.findOne({ author: authorFixed, title: titleFixed }).exec()
       .then((article) => {
-        res.render('article', { user: req.user, article: article });
+        res.render('article', { user: req.user, article });
       });
   });
 };

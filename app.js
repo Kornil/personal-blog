@@ -27,15 +27,15 @@ passport.use(new GoogleStrategy({
               picture: profile.photos[0].value,
               google: {
                 id: profile.id,
-                token: accessToken                
-              }
-            }
+                token: accessToken,
+              },
+            },
             //newUser.save()
               //.then(function(newUser){
                 return done(null, newUser);
               //})
           }
-        }).catch(function(err){
+        }).catch(function (err){
           throw err;
         });
     })
@@ -51,12 +51,12 @@ passport.use(new GoogleStrategy({
 // from the database when deserializing.  However, due to the fact that this
 // example does not have a database, the complete Google profile is serialized
 // and deserialized.
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function(obj, done) {
-    done(null, obj);
+passport.deserializeUser(function (obj, done) {
+  done(null, obj);
 });
 
 var app = express();
